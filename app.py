@@ -399,13 +399,22 @@ if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     host = os.environ.get('HOST', '0.0.0.0')
     debug = os.environ.get('DEBUG', 'false').lower() == 'true'
-    
-    print(f"""
-    ╔══════════════════════════════════╗
-    ║     OMEN Artifact Toolkit v2.0   ║
-    ║  Listening on {host}:{port}         ║
-    ║  Generators: {len(GENERATORS)} loaded           ║
-    ╚══════════════════════════════════╝
-    """)
-    
+
+    banner = r"""
+██╗  ██╗██████╗ ███████╗███╗   ██╗
+╚██╗██╔╝██╔══██╗██╔════╝████╗  ██║
+ ╚███╔╝ ██████╔╝█████╗  ██╔██╗ ██║
+ ██╔██╗ ██╔══██╗██╔══╝  ██║╚██╗██║
+██╔╝ ██╗██║  ██║███████╗██║ ╚████║
+╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
+    """
+    print(banner)
+    print("  Copyright (c) 2025 Adam-ZS — https://github.com/Adam-ZS")
+    print("  EDUCATIONAL USE ONLY — Authorized testing required.\n")
+    print(f"  ╔══════════════════════════════════╗")
+    print(f"  ║     OMEN Artifact Toolkit v2.0   ║")
+    print(f"  ║  Listening on {host}:{port}         ║")
+    print(f"  ║  Generators: {len(GENERATORS)} loaded           ║")
+    print(f"  ╚══════════════════════════════════╝")
+
     app.run(host=host, port=port, debug=debug)

@@ -8,6 +8,7 @@
 ██╔╝ ██╗██║  ██║███████╗██║ ╚████║
 ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
 ```
+*Copyright (c) 2025 Adam-ZS — https://github.com/Adam-ZS*
 
 [![Platform](https://img.shields.io/badge/platform-Web%20%7C%20Cross--platform-purple)]()
 [![Backend](https://img.shields.io/badge/backend-Flask%202.3-cyan)]()
