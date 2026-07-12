@@ -2,6 +2,7 @@
 
 from . import Generator
 import base64
+import json
 
 
 class HtaGenerator(Generator):
