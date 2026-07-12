@@ -91,6 +91,9 @@ docker run -p 5000:5000 omen-toolkit
 
 ![Architecture](screenshots/architecture.png)
 
+> **Dashboard Preview:**
+> ![OMEN Dashboard](screenshots/dashboard.png)
+
 ```
 ┌──────────────────────────────────────────────────────────┐
 │                    OMEN Web Server                        │
