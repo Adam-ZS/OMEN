@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OMEN — Artifact Toolkit Builder</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="bg-grid"></div>
+<div class="container">
+    <header>
+        <div class="logo">
+            <span class="logo-icon">◈</span>
+            <div>
+                <h1>OMEN</h1>
+                <p class="subtitle">Artifact Toolkit Builder</p>
+            </div>
+        </div>
+        <div class="header-stats">
+            <div class="stat-card" id="stat-generators">
+                <span class="stat-value">6</span>
+                <span class="stat-label">Generators</span>
+            </div>
+            <div class="stat-card" id="stat-generated">
+                <span class="stat-value">0</span>
+                <span class="stat-label">Generated</span>
+            </div>
+            <div class="stat-card" id="stat-status">
+                <span class="stat-value live">●</span>
+                <span class="stat-label">Online</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <aside class="sidebar">
+            <div class="glass-panel">
+                <h3>Generators</h3>
+                <div class="generator-list" id="generator-list">
+                    <div class="generator-loader">Loading generators...</div>
+                </div>
+            </div>
+            <div class="glass-panel">
+                <h3>Obfuscation</h3>
+                <select id="obfuscation-level" class="glass-select">
+                    <option value="none">None — Raw Output</option>
+                    <option value="base64">Base64 Encode</option>
+                    <option value="xor">XOR + Base64</option>
+                    <option value="aes">AES-256 Encrypt</option>
+                    <option value="full">Full (Multi-Layer)</option>
+                </select>
+                <div class="info-text">Higher obfuscation = larger payload, lower detection rate</div>
+            </div>
+            <div class="glass-panel">
+                <h3>Quick Actions</h3>
+                <button class="glass-btn" onclick="analyzeCurrent()">🔍 Analyze Risk</button>
+                <button class="glass-btn" onclick="downloadBatch()">📦 Batch Download</button>
+                <button class="glass-btn" onclick="clearOutput()">🗑️ Clear Output</button>
+            </div>
+        </aside>
+
+        <section class="workspace">
+            <div class="glass-panel config-panel">
+                <h2 id="config-title">Select a generator to begin</h2>
+                <div id="config-options">
+                    <p class="placeholder-text">Choose a generator type from the sidebar to configure your artifact.</p>
+                </div>
+                <button class="glass-btn primary" id="generate-btn" onclick="generate()" disabled>
+                    ⚡ Generate Artifact
+                </button>
+            </div>
+
+            <div class="glass-panel output-panel">
+                <div class="output-header">
+                    <h3>Output</h3>
+                    <div class="output-actions">
+                        <button class="glass-btn small" onclick="copyOutput()">📋 Copy</button>
+                        <button class="glass-btn small" onclick="downloadOutput()">⬇ Download</button>
+                        <button class="glass-btn small" onclick="previewRequest()">👁 Preview</button>
+                    </div>
+                </div>
+                <div class="output-stats" id="output-stats"></div>
+                <pre class="output-area" id="output-area"><span class="placeholder">Artifact output will appear here...</span></pre>
+            </div>
+        </section>
+    </main>
+
+    <div class="toast-container" id="toast-container"></div>
+</div>
+
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal()">
+    <div class="modal-content glass-panel" onclick="event.stopPropagation()">
+        <h3 id="modal-title">Preview</h3>
+        <pre class="modal-body" id="modal-body"></pre>
+        <button class="glass-btn" onclick="closeModal()">Close</button>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

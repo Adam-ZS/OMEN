@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OMEN Architecture</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    background: #0a0a0f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    color: #e8e8f0;
+    padding: 40px;
+}
+.container { max-width: 900px; width: 100%; }
+h1 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 40px;
+    background: linear-gradient(135deg, #6c5ce7, #00d4ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.arch-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+}
+.row {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.module {
+    background: rgba(255,255,255,0.04);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 16px 24px;
+    text-align: center;
+    min-width: 140px;
+    transition: all 0.3s;
+}
+.module:hover { background: rgba(108,92,231,0.15); border-color: #6c5ce7; box-shadow: 0 0 30px rgba(108,92,231,0.2); }
+.module .icon { font-size: 28px; margin-bottom: 6px; }
+.module .name { font-size: 14px; font-weight: 600; color: #e8e8f0; }
+.module .desc { font-size: 11px; color: #8888a0; margin-top: 2px; }
+.module.accent { border-color: #6c5ce7; background: rgba(108,92,231,0.1); }
+.module.cyan { border-color: #00d4ff; background: rgba(0,212,255,0.1); }
+.arrow {
+    color: #555570;
+    font-size: 20px;
+    padding: 0 4px;
+}
+.arrow.down { display: block; text-align: center; font-size: 24px; padding: 4px 0; }
+.label {
+    font-size: 11px;
+    color: #555570;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+.row-label {
+    font-size: 12px;
+    color: #6c5ce7;
+    font-weight: 600;
+    margin: 8px 0;
+    text-align: center;
+}
+.connector-line {
+    width: 2px;
+    height: 20px;
+    background: linear-gradient(to bottom, rgba(108,92,231,0.3), rgba(0,212,255,0.3));
+    margin: 0 auto;
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>◈ OMEN — Architecture Diagram</h1>
+
+    <div class="arch-grid">
+
+        <div class="row-label">USER INTERFACE</div>
+        <div class="row">
+            <div class="module cyan">
+                <div class="icon">🎨</div>
+                <div class="name">Glassmorphism UI</div>
+                <div class="desc">Dark theme · React-like JS</div>
+            </div>
+            <div class="arrow">↔</div>
+            <div class="module cyan">
+                <div class="icon">🧩</div>
+                <div class="name">Config Panel</div>
+                <div class="desc">Dynamic forms<br>per generator</div>
+            </div>
+            <div class="arrow">↔</div>
+            <div class="module cyan">
+                <div class="icon">📤</div>
+                <div class="name">Output View</div>
+                <div class="desc">Preview · Download<br>Copy · Analyze</div>
+            </div>
+        </div>
+
+        <div class="connector-line"></div>
+
+        <div class="row-label">API LAYER</div>
+        <div class="row">
+            <div class="module accent">
+                <div class="icon">⚡</div>
+                <div class="name">Flask API</div>
+                <div class="desc">REST endpoints<br>JSON in/out</div>
+            </div>
+            <div class="arrow">↓</div>
+            <div class="module">
+                <div class="icon">🔍</div>
+                <div class="name">Analysis Engine</div>
+                <div class="desc">Risk scoring<br>Pattern detection</div>
+            </div>
+        </div>
+
+        <div class="connector-line"></div>
+
+        <div class="row-label">GENERATOR MODULES</div>
+        <div class="row">
+            <div class="module"><div class="icon">📄</div><div class="name">VBA Macro</div><div class="desc">Office payloads</div></div>
+            <div class="module"><div class="icon">🌐</div><div class="name">HTA</div><div class="desc">HTML Apps</div></div>
+            <div class="module"><div class="icon">💻</div><div class="name">VBA Stager</div><div class="desc">Shellcode/DLL</div></div>
+            <div class="module"><div class="icon">🕸</div><div class="name">JavaScript</div><div class="desc">WSH/Browser/Node</div></div>
+            <div class="module"><div class="icon">🔗</div><div class="name">LNK</div><div class="desc">Shortcuts</div></div>
+            <div class="module"><div class="icon">💿</div><div class="name">ISO</div><div class="desc">Disk images</div></div>
+        </div>
+
+        <div class="connector-line"></div>
+
+        <div class="row-label">OBFUSCATION PIPELINE</div>
+        <div class="row">
+            <div class="module"><div class="icon">📦</div><div class="name">Base64</div><div class="desc">Encoding</div></div>
+            <div class="arrow">→</div>
+            <div class="module"><div class="icon">🔑</div><div class="name">XOR</div><div class="desc">Rolling key</div></div>
+            <div class="arrow">→</div>
+            <div class="module"><div class="icon">🔐</div><div class="name">AES-256</div><div class="desc">Encryption</div></div>
+            <div class="arrow">→</div>
+            <div class="module"><div class="icon">🔥</div><div class="name">Full</div><div class="desc">Multi-layer</div></div>
+        </div>
+
+        <div class="connector-line"></div>
+
+        <div class="row-label">OUTPUT FORMATS</div>
+        <div class="row">
+            <div class="module accent"><div class="icon">📁</div><div class="name">.bas</div><div class="desc">VBA Module</div></div>
+            <div class="module accent"><div class="icon">📁</div><div class="name">.hta</div><div class="desc">HTML App</div></div>
+            <div class="module accent"><div class="icon">📁</div><div class="name">.js</div><div class="desc">JavaScript</div></div>
+            <div class="module accent"><div class="icon">📁</div><div class="name">.vbs</div><div class="desc">VBScript</div></div>
+            <div class="module accent"><div class="icon">📁</div><div class="name">.ps1</div><div class="desc">PowerShell</div></div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
